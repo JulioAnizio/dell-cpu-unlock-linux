@@ -1,0 +1,9 @@
+# Comandos para destravar o processador (Dell/Intel no Linux)
+# Use caso o computador fique lento (500MHz) após reiniciar.
+
+sudo modprobe msr
+sudo apt install msr-tools -y
+sudo wrmsr -a 0x1FC 2
+
+# Para conferir a velocidade em tempo real:
+watch -n 1 "grep MHz /proc/cpuinfo"
